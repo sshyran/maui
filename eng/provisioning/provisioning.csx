@@ -8,6 +8,9 @@ if (IsMac)
  	}
 	ForceJavaCleanup();
 
+	// UNDONE: TEST:
+	// MicrosoftOpenJdk ("11.0.13.8.1");
+
 	string releaseChannel = Environment.GetEnvironmentVariable ("CHANNEL");
 	Console.WriteLine ("ANDROID_SDK_MAC: {0}", Environment.GetEnvironmentVariable ("ANDROID_SDK_MAC"));
 	Console.WriteLine ("IOS_SDK_MAC: {0}", Environment.GetEnvironmentVariable ("IOS_SDK_MAC"));
@@ -114,9 +117,4 @@ else
 		Console.WriteLine("Installing SDK: {0}", sdk);
 		androidSDK = androidSDK.SdkManagerPackage (sdk);
 	}
-}
-
-if (IsMac)
-{
-	MicrosoftOpenJdk ("11.0.13.8.1");
 }
