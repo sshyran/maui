@@ -154,6 +154,19 @@ stages:
                 env:
                   DOTNET_TOKEN: $(dotnetbuilds-internal-container-read-token)
                   PRIVATE_BUILD: $(PrivateBuild)
+              - pwsh: |
+                  dotnet --version
+                  dotnet --list-sdks
+                displayName: 'Show .NET SDK info'
+              - task: UseDotNet@2                 # https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/tool/dotnet-core-tool-installer?view=azure-devops
+                displayName: 'Use .NET SDK 5'
+                inputs:
+                  packageType: sdk
+                  version: 5.0.x
+              - pwsh: |
+                  dotnet --version
+                  dotnet --list-sdks
+                displayName: 'Show .NET SDK info'
               - pwsh: ./build.ps1 --target=dotnet-build --configuration="${{ BuildConfiguration }}" --verbosity=diagnostic
                 displayName: 'Build .NET Maui'
               - pwsh: ./build.ps1 --target=dotnet-test --configuration="${{ BuildConfiguration }}" --verbosity=diagnostic
