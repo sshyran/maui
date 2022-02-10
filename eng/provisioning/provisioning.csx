@@ -8,8 +8,7 @@ if (IsMac)
  	}
 	ForceJavaCleanup();
 
-	// UNDONE: TEST:
-	// MicrosoftOpenJdk ("11.0.13.8.1");
+	MicrosoftOpenJdk ("11.0.13.8.1");
 
 	string releaseChannel = Environment.GetEnvironmentVariable ("CHANNEL");
 	Console.WriteLine ("ANDROID_SDK_MAC: {0}", Environment.GetEnvironmentVariable ("ANDROID_SDK_MAC"));
