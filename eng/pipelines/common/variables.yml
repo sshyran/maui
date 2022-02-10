@@ -38,6 +38,8 @@ variables:
   value: '$(System.DefaultWorkingDirectory)/eng/provisioning/vs.csx'
 - name: provisionator.extraArguments
   value: '-vvvv'
+- name: PROVISIONATOR_CHANNEL                                 # Temporarily override in topic branch to reference private Provisionator channels (e.g., pr/[github-account-name]/[pr-number]) as a means to test Provisionator changes
+  value: latest
 - name: DotNet.Dir
   value: $(System.DefaultWorkingDirectory)/bin/dotnet
 - name: DotNet.Path
