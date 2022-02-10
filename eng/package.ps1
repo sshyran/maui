@@ -104,6 +104,11 @@ else
         $env:PATH=($dotnet + [IO.Path]::PathSeparator + $env:PATH)
         $dotnet_tool = Join-Path $dotnet dotnet
 
+        # UNDONE: TEST:
+        Write-Host "dotnet: ${dotnet}"
+        Write-Host "dotnet_tool: ${dotnet_tool}"
+        & $dotnet_tool --version
+
         # Build with ./bin/dotnet/dotnet
         & $dotnet_tool pack $slnMac `
             -c:$configuration `
