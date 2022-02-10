@@ -158,11 +158,13 @@ stages:
                   dotnet --version
                   dotnet --list-sdks
                 displayName: 'Show .NET SDK info'
+              # Disabled
               - task: UseDotNet@2                 # https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/tool/dotnet-core-tool-installer?view=azure-devops
                 displayName: 'Use .NET SDK 5'
                 inputs:
                   packageType: sdk
                   version: 5.0.x
+                enabled: false
               - pwsh: |
                   dotnet --version
                   dotnet --list-sdks
