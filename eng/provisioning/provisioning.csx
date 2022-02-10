@@ -7,7 +7,6 @@ if (IsMac)
  			.Source (_ => "https://download.mono-project.com/archive/6.12.0/macos-10-universal/MonoFramework-MDK-6.12.0.107.macos10.xamarin.universal.pkg");
  	}
 	ForceJavaCleanup();
-	MicrosoftOpenJdk ("11.0.13.8.1");
 
 	string releaseChannel = Environment.GetEnvironmentVariable ("CHANNEL");
 	Console.WriteLine ("ANDROID_SDK_MAC: {0}", Environment.GetEnvironmentVariable ("ANDROID_SDK_MAC"));
@@ -97,7 +96,7 @@ else
 
 string ANDROID_API_SDKS = Environment.GetEnvironmentVariable ("ANDROID_API_SDKS");
 
-if(String.IsNullOrWhiteSpace(ANDROID_API_SDKS))
+if (String.IsNullOrWhiteSpace(ANDROID_API_SDKS))
 {
 	AndroidSdk()
 		.ApiLevel((AndroidApiLevel)24)
@@ -107,12 +106,17 @@ if(String.IsNullOrWhiteSpace(ANDROID_API_SDKS))
 		.ApiLevel((AndroidApiLevel)31)
 		.SdkManagerPackage ("build-tools;29.0.3");
 }
-else{
-
+else
+{
 	var androidSDK = AndroidSdk();
 	foreach(var sdk in ANDROID_API_SDKS.Split(','))
 	{
 		Console.WriteLine("Installing SDK: {0}", sdk);
 		androidSDK = androidSDK.SdkManagerPackage (sdk);
 	}
+}
+
+if (IsMac)
+{
+	MicrosoftOpenJdk ("11.0.13.8.1");
 }
