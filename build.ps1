@@ -16,5 +16,6 @@ $cakeArguments = @("$Script");
 if ($Target) { $cakeArguments += "--target=$Target" }
 $cakeArguments += $ScriptArgs
 
+& dotnet --version  # UNDONE: TEST:
 & dotnet tool run dotnet-cake -- $cakeArguments
 exit $LASTEXITCODE
