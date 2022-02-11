@@ -47,6 +47,10 @@ schedules:
     include:
     - main
 
+variables:
+  - template: /eng/pipelines/common/variables.yml
+  - template: templates/common/vs-release-vars.yml@sdk-insertions
+
 parameters:
   - name: provisionatorChannel
     displayName: 'Provisionator channel'
@@ -93,10 +97,6 @@ parameters:
         bootsiOS: $(iOS.Pkg)
         bootsMacCatalyst: $(MacCatalyst.Pkg)
         artifact: nuget-macos
-
-variables:
-  - template: /eng/pipelines/common/variables.yml
-  - template: templates/common/vs-release-vars.yml@sdk-insertions
 
 resources:
   repositories:
