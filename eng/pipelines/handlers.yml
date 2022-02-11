@@ -157,6 +157,9 @@ stages:
               - pwsh: |
                   dotnet --version
                   dotnet --list-sdks
+                  # UNDONE: TEST
+                  Write-Host "Provisionator channel variable: PROVISIONATOR_CHANNEL: $(PROVISIONATOR_CHANNEL)"
+                  Write-Host "Provisionator channel parameter: provisionatorChannel: ${{ parameters.provisionatorChannel }}
                 displayName: 'Show .NET SDK info'
               # Disabled
               - task: UseDotNet@2                 # https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/tool/dotnet-core-tool-installer?view=azure-devops
